@@ -31,7 +31,8 @@ mastodon.log_in(
     M_login
 )
 
-posts = mastodon.timeline_home()
+posts = mastodon.timeline_local() 
+posts += mastodon.timeline_public()
 
 sql_users = "INSERT IGNORE INTO users (id, name) VALUES (%s, %s)"
 sql_posts = "INSERT IGNORE INTO posts (postid, userid) VALUES (%s, %s)"
