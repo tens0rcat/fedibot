@@ -1,6 +1,6 @@
 from mastodon import Mastodon
 import mysql.connector
-from files.secrets.secrets import secrets
+from secrets.secrets import secrets
 
 M_client_id = secrets['MASTODON_CLIENT_ID']
 M_api_base_url = secrets['MASTODON_PRIMARY_BASE_URL']
