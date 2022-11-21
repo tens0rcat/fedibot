@@ -44,10 +44,10 @@ for tag in tags:
                 taglist[basetag][atag[0]] = 1
 
 for tag in tags:
-    print(tags[tag] + ":")
+    #print(tags[tag] + ",")
     for atag in taglist[tag]:
         tagname = tags[atag]
         tagcount = taglist[tag][atag]
-        print("  - " + tagname + " " + str(tagcount))
+        print("'" + tags[tag] +"', '" + tagname + "', " + str(tagcount))
     
 
