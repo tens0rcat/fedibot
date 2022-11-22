@@ -42,6 +42,8 @@ sql_gettag = "SELECT id FROM tags WHERE name = %s"
 
 for post in posts:
   # print("NewPost " + str(post.id) + " by: " + str(post.account.id) + " - " + post.account.acct)
+  if post.account.bot:
+    continue
   val = (post.account.id, post.account.acct)
   mycursor.execute(sql_users, val)
   mydb.commit()
@@ -69,4 +71,3 @@ for post in posts:
     mycursor.execute(sql_tags, val)
     mydb.commit()
     # print(mycursor.rowcount, "posttag")
-
