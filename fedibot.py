@@ -35,10 +35,11 @@ posts = mastodon.timeline_local()
 posts += mastodon.timeline_public()
 
 sql_users = "INSERT IGNORE INTO users (id, name) VALUES (%s, %s)"
-sql_posts = "INSERT IGNORE INTO posts (postid, userid) VALUES (%s, %s)"
+#sql_posts = "INSERT IGNORE INTO posts (postid, userid) VALUES (%s, %s)"
 sql_tagname = "INSERT IGNORE INTO tags (name) VALUES (%s)"
 sql_tags = "INSERT INTO posttag (postid, tagid) VALUES (%s, %s)"
 sql_gettag = "SELECT id FROM tags WHERE name = %s"
+sql_taguser = "INSERT IGNORE INTO taguser (tagid, userid) VALUES (%s, %s)"
 
 for post in posts:
   # print("NewPost " + str(post.id) + " by: " + str(post.account.id) + " - " + post.account.acct)
@@ -48,26 +49,32 @@ for post in posts:
   mycursor.execute(sql_users, val)
   mydb.commit()
   # print(mycursor.rowcount, "user record inserted.")
-  val = (post.id, post.account.id)
-  mycursor.execute(sql_posts, val)
-  mydb.commit()
+  # val = (post.id, post.account.id)
+  # mycursor.execute(sql_posts, val)
+  # mydb.commit()
   # print(mycursor.rowcount, "post record inserted.")
   for tag in post.tags:
     # print(str(post.id) + " " + tag.name)
     val = (tag.name,)
     mycursor.execute(sql_gettag, val)
-    tagresult = mycursor.fetchall()
-    if len(tagresult) < 1 :
+    tagid = mycursor.fetchall()
+    if len(tagid) < 1 :
       val = (tag.name.lower(),)
       mycursor.execute(sql_tagname,val)
       mydb.commit()
-      mycursor.execute(sql_gettag, val)
-      tagresult = mycursor.fetchall()
-    #for t in tagresult:
-      # print(tag.name + ": " + str(t[0]))
-    if len(tagresult) > 1:
-      print("Duplicate TAG ERROR: " + tag.name)
-    val = (post.id, tagresult[0][0])
-    mycursor.execute(sql_tags, val)
+    val = (tag.name,)
+    mycursor.execute(sql_gettag, val)
+    tagid = mycursor.fetchall()
+    val = (tagid[0][0], post.account.id)
+    mycursor.execute(sql_taguser, val)
     mydb.commit()
-    # print(mycursor.rowcount, "posttag")
+    #   mycursor.execute(sql_gettag, val)
+    #   tagid = mycursor.fetchall()
+    # #for t in tagresult:
+    #   # print(tag.name + ": " + str(t[0]))
+    # if len(tagid) > 1:
+    #   print("Duplicate TAG ERROR: " + tag.name)
+    # val = (post.id, tagid[0][0])
+    # mycursor.execute(sql_tags, val)
+    # mydb.commit()
+    # # print(mycursor.rowcount, "posttag")
