@@ -74,7 +74,7 @@ for post in posts:
     #   # print(tag.name + ": " + str(t[0]))
     # if len(tagid) > 1:
     #   print("Duplicate TAG ERROR: " + tag.name)
-    # val = (post.id, tagid[0][0])
-    # mycursor.execute(sql_tags, val)
-    # mydb.commit()
+    val = (post.id, tagid[0][0])
+    mycursor.execute(sql_tags, val)
+    mydb.commit()
     # # print(mycursor.rowcount, "posttag")
