@@ -25,27 +25,28 @@
       },
       "creation_time": "2022-11-23T04:01:44.438Z",
       "description": {
-        "content": "need to remove unused queries \nclean up commented out code",
+        "content": "need to remove unused queries \nclean up commented out code\ndrop unused tables",
         "mime": "text/markdown"
       },
       "id": "3",
       "references": [],
       "title": "database refactor"
-    },
+    }
+  ],
+  "testing": [],
+  "done": [
     {
       "assignedTo": {
         "name": "tensorcat"
       },
       "creation_time": "2022-11-23T03:57:35.587Z",
       "description": {
-        "content": "use modules\nuse classes",
+        "content": "use modules\n",
         "mime": "text/markdown"
       },
       "id": "2",
       "references": [],
       "title": "refactor"
     }
-  ],
-  "testing": [],
-  "done": []
+  ]
 }
