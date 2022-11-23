@@ -1,22 +1,6 @@
-import mysql.connector
-from secrets.secrets import mysqlsecrets as sDB
-from collections import Counter
+from modules import Mysql as mysql
 
-def db_init():
-  db = sDB['MYSQL_DATABASE']
-  db_user = sDB['MYSQL_USER']
-  db_pass = sDB['MYSQL_PASSWORD']
-
-  mydb = mysql.connector.connect(
-    host="localhost",
-    user=db_user,
-    password=db_pass,
-    database=db
-  )
-
-  return (mydb, mydb.cursor())
-
-retval = db_init()
+retval = mysql.init()
 mydb = retval[0]
 mycursor = retval[1]
 
@@ -54,8 +38,9 @@ for t in tmp:
     tagusers[t[0]] += 1
 
 for tu in tagusers:
-  if tagusers[tu] > 1:
-      print("\"" + tags[tu] + "\", " + str(tagusers[tu]))    
+  if tagusers[tu] < 2:
+    continue
+  print("\"" + tags[tu] + "\", " + str(tagusers[tu]))    
 
 # taglist = {}
 for tag in tags:
@@ -74,55 +59,3 @@ for tag in tags:
     # print(str(tag) + ":" + str(l))
     if tagusers[l] > 1:
       print("\"" + tags[tag] + "\",\"" + tags[l] + "\"" )
-      
-
-
-    # mycursor.execute(sql_getpostswithtag,val)
-    # postswithtags = mycursor.fetchall()
-    # taglist[basetag] = {}
-    # usercount[basetag] = 0
-    # users = []
-    # for post in postswithtags:
-    # #     val = (post[0],)
-    # #     mycursor.execute(sql_getuserfrompost, val)
-    # #     user = mycursor.fetchall()
-    # #     if user[0][0] not in users:
-    # #         users.append(user[0][0])
-    # #         usercount[basetag] += 1
-    #     val = (post[0],)
-    #     mycursor.execute(sql_gettagsfrompost, val)
-    #     adjacenttags = mycursor.fetchall()
-    #     for atag in adjacenttags:
-    #         if atag[0] == basetag: 
-    #             continue
-    #         if tagusers[atag[0]] > 1:
-    #             print("\"" + tags[tag] + "\", \"" + tags[atag[0]] + "\"")
-        #     if atag[0] > basetag:
-        #         t1 = basetag
-        #         t2 = atag[0]
-        #     else:
-        #         t1 = atag[0]
-        #         t2 = basetag
-            
-        #     if t1 in taglist[basetag]:
-        #         if atag[0] in taglist[basetag]:
-        #             taglist[basetag][atag[0]] += 1 
-        #         else:
-        #             taglist[basetag][atag[0]] = 1
-
-    # if len(users) > 1:
-    #     val = (tag,)
-    #     mycursor.execute(sql_getnamefromtag,val)
-    #     tagname = mycursor.fetchone()[0]
-    #     print("\"" + tagname + "\",  " + str(len(users)))
-
-pass #for breakpoint
-
-# for tag in tags:
-#     #print(tags[tag] + ",")
-#     for atag in taglist[tag]:
-#         tagname = tags[atag]
-#         tagcount = taglist[tag][atag]
-#         print("\"" + tags[tag] +"\", \"" + tagname + "\", " + str(tagcount) + ", " + str(usercount[tag]) )
-    
-

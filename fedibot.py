@@ -1,47 +1,27 @@
-from mastodon import Mastodon
-import mysql.connector
-from secrets.secrets import mastodonsecrets as sMasto
-from secrets.secrets import mysqlsecrets as sDB
+from modules import Mastodon as mastodon
+from modules import Mysql as mysql
+# import mysql.connector
+# from secrets.secrets import mysqlsecrets as sDB
 
-def mastodon_init():
-  M_client_id = sMasto['MASTODON_CLIENT_ID']
-  M_api_base_url = sMasto['MASTODON_PRIMARY_BASE_URL']
-  M_email = sMasto['MASTODON_PRIMARY_USER_EMAIL']
-  M_user_token = sMasto['MASTODON_PRIMARY_USER_TOKEN']
-  M_login = sMasto['MASTODON_PRIMARY_LOGIN']
 
-  mastodon = Mastodon(
-    client_id = M_client_id,
-    api_base_url = M_api_base_url
-  )
-  mastodon.log_in(
-      M_email,
-      M_user_token,
-      M_login
-  )
-  return mastodon
+# def db_init():
+#   db = sDB['MYSQL_DATABASE']
+#   db_user = sDB['MYSQL_USER']
+#   db_pass = sDB['MYSQL_PASSWORD']
 
-def mastodon_getposts():
-  return mastodon.timeline_local() + mastodon.timeline_public()
+#   mydb = mysql.connector.connect(
+#     host="localhost",
+#     user=db_user,
+#     password=db_pass,
+#     database=db
+#   )
 
-mastodon = mastodon_init()
-posts = mastodon_getposts()
+#   return (mydb, mydb.cursor())
 
-def db_init():
-  db = sDB['MYSQL_DATABASE']
-  db_user = sDB['MYSQL_USER']
-  db_pass = sDB['MYSQL_PASSWORD']
+mastodon.login()
+posts = mastodon.getposts()
 
-  mydb = mysql.connector.connect(
-    host="localhost",
-    user=db_user,
-    password=db_pass,
-    database=db
-  )
-
-  return (mydb, mydb.cursor())
-
-retval = db_init()
+retval = mysql.init()
 mydb = retval[0]
 mycursor = retval[1]
 

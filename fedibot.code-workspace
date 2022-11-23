@@ -1,20 +1,14 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
   "settings": {
-    "files.exclude": {
-      "**/.git": false,
-      "**/.svn": false,
-      "**/.hg": false,
-      "**/CVS": false,
-      ".vscode": false
-    },
     "hide-files.files": [
       "secrets",
-      "fedibot.code-workspace"
+      "fedibot.code-workspace",
+      ".vscode"
     ]
   }
 }

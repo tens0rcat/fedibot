@@ -4,45 +4,18 @@
       "assignedTo": {
         "name": "tensorcat"
       },
-      "creation_time": "2022-11-22T19:45:25.602Z",
+      "creation_time": "2022-11-23T03:53:31.680Z",
       "description": {
-        "content": "\"a\",\"b\" is the same as \"b\",\"a\"",
+        "content": "1. node font weight is based on tagusers\n1. italics/normal/bold/underlined could be orders of magnitude",
         "mime": "text/markdown"
       },
-      "id": "2",
-      "references": [],
-      "title": "don't save reflected links"
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-22T22:38:29.083Z",
-      "id": "4",
-      "references": [],
-      "title": "generate word cloud"
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-22T19:46:10.972Z",
-      "id": "3",
-      "references": [],
-      "title": "Save counts of combos in db, not every combo repeated."
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-22T22:39:34.818Z",
-      "description": {
-        "content": "last 15, 30, 60, day, week, month, year, all",
+      "details": {
+        "content": "https://www.askpython.com/python/examples/word-cloud-using-python\n",
         "mime": "text/markdown"
       },
-      "id": "5",
+      "id": "1",
       "references": [],
-      "title": "time comparisons"
+      "title": "wordcloud"
     }
   ],
   "in-progress": [
@@ -50,26 +23,29 @@
       "assignedTo": {
         "name": "tensorcat"
       },
-      "creation_time": "2022-11-22T22:48:11.610Z",
+      "creation_time": "2022-11-23T04:01:44.438Z",
       "description": {
-        "content": "classes\n  - db\n  - fedi ",
+        "content": "need to remove unused queries \nclean up commented out code",
         "mime": "text/markdown"
       },
-      "id": "6",
+      "id": "3",
       "references": [],
-      "title": "refactor"
-    }
-  ],
-  "testing": [
+      "title": "database refactor"
+    },
     {
       "assignedTo": {
         "name": "tensorcat"
       },
-      "creation_time": "2022-11-22T19:42:10.781Z",
-      "id": "1",
+      "creation_time": "2022-11-23T03:57:35.587Z",
+      "description": {
+        "content": "use modules\nuse classes",
+        "mime": "text/markdown"
+      },
+      "id": "2",
       "references": [],
-      "title": "restructuring for effeciency"
+      "title": "refactor"
     }
   ],
+  "testing": [],
   "done": []
 }
