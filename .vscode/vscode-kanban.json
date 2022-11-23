@@ -4,6 +4,20 @@
       "assignedTo": {
         "name": "tensorcat"
       },
+      "creation_time": "2022-11-23T15:08:07.585Z",
+      "details": {
+        "content": "https://stackoverflow.com/questions/39616317/date-for-date-created-and-date-last-updated-for-mysql",
+        "mime": "text/markdown"
+      },
+      "id": "5",
+      "references": [],
+      "title": "cerated and updated datetime",
+      "type": "bug"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
       "creation_time": "2022-11-23T03:53:31.680Z",
       "description": {
         "content": "1. node font weight is based on tagusers\n1. italics/normal/bold/underlined could be orders of magnitude",
@@ -25,7 +39,7 @@
       },
       "creation_time": "2022-11-23T04:01:44.438Z",
       "description": {
-        "content": "need to remove unused queries \nclean up commented out code\ndrop unused tables",
+        "content": " - [ ] need to remove unused queries \n - [x] clean up commented out code\n - [x] drop unused tables",
         "mime": "text/markdown"
       },
       "id": "3",
@@ -39,6 +53,20 @@
       "assignedTo": {
         "name": "tensorcat"
       },
+      "creation_time": "2022-11-23T15:40:52.770Z",
+      "description": {
+        "content": " - [x] email\n - [x] cloud\n - [x] calendar & tasks",
+        "mime": "text/markdown"
+      },
+      "id": "6",
+      "references": [],
+      "title": "set up services",
+      "type": "bug"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
       "creation_time": "2022-11-23T03:57:35.587Z",
       "description": {
         "content": "use modules\n",
@@ -47,6 +75,20 @@
       "id": "2",
       "references": [],
       "title": "refactor"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-23T14:27:15.502Z",
+      "details": {
+        "content": "made a .sh to run the job",
+        "mime": "text/markdown"
+      },
+      "id": "4",
+      "references": [],
+      "title": "crontab not working for results",
+      "type": "bug"
     }
   ]
 }

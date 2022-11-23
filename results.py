@@ -14,10 +14,12 @@ sql_getnamefromtag = "SELECT name FROM tags WHERE id = %s"
 sql_getuseridsfromtaguser = "SELECT tagid, userid FROM taguser"
 sql_getlinkswithtag = "SELECT t1, t2 FROM links WHERE t1 = %s OR t2 = %s"
 
+outputdetail = 20
+
 def outputtagsCSV(_tagusers, _tags):
   #output the final tag users
   for tu in _tagusers:
-    if _tagusers[tu] < 2:
+    if _tagusers[tu] < outputdetail:
       continue
     print("\"" + _tags[tu] + "\", " + str(_tagusers[tu])) 
 
@@ -25,8 +27,9 @@ def outputlinkspertagCSV(_tag, _tags, _tagusers, _linkswithtag):
   # Output users per tab\g      
   for l in _linkswithtag:
     # print(str(tag) + ":" + str(l))
-    if _tagusers[l] > 1:
-      print("\"" + _tags[_tag] + "\",\"" + _tags[l] + "\"" )
+    if _tagusers[l] < outputdetail:
+      continue
+    print("\"" + _tags[_tag] + "\"," + str(_tagusers[_tag]) + ",\"" + _tags[l] + "\"," + str(_tagusers[l]))
 
 # Build the tags list (id, name)
 mycursor.execute(sql_gettags)
@@ -60,6 +63,8 @@ for tag in tags:
   links = mycursor.fetchall()
   linkswithtag = []
   for link in links:
+    if tagusers[link[0]] < outputdetail or tagusers[link[1]] < outputdetail:
+      continue
     if link[0] == tag:
       if link[1] not in links:
         linkswithtag.append(link[1])
