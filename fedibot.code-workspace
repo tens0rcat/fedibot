@@ -4,5 +4,17 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+  "settings": {
+    "files.exclude": {
+      "**/.git": false,
+      "**/.svn": false,
+      "**/.hg": false,
+      "**/CVS": false,
+      ".vscode": false
+    },
+    "hide-files.files": [
+      "secrets",
+      "fedibot.code-workspace"
+    ]
+  }
 }
