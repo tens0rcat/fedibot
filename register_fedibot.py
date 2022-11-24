@@ -8,7 +8,7 @@ M_user_token = sMasto['MASTODON_PRIMARY_USER_TOKEN']
 M_login = sMasto['MASTODON_PRIMARY_LOGIN']
 
 Mastodon.create_app(
-  'fedibot',
-  api_base_url = M_api_base_url,
-  to_file = M_client_id
+    'fedibot',
+    api_base_url = M_api_base_url,
+    to_file = M_client_id
 )

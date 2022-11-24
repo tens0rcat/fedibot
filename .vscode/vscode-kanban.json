@@ -11,7 +11,7 @@
       },
       "id": "5",
       "references": [],
-      "title": "cerated and updated datetime",
+      "title": "created and updated datetime",
       "type": "bug"
     },
     {
@@ -45,10 +45,37 @@
       "id": "3",
       "references": [],
       "title": "database refactor"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-24T01:44:55.030Z",
+      "description": {
+        "content": "Figure out what windows and scenes I need and set them up",
+        "mime": "text/markdown"
+      },
+      "id": "7",
+      "references": [],
+      "title": "Set up OBS w/ NDI"
     }
   ],
   "testing": [],
   "done": [
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-23T14:27:15.502Z",
+      "details": {
+        "content": "made a .sh to run the job",
+        "mime": "text/markdown"
+      },
+      "id": "4",
+      "references": [],
+      "title": "crontab not working for results",
+      "type": "bug"
+    },
     {
       "assignedTo": {
         "name": "tensorcat"
@@ -75,20 +102,6 @@
       "id": "2",
       "references": [],
       "title": "refactor"
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-23T14:27:15.502Z",
-      "details": {
-        "content": "made a .sh to run the job",
-        "mime": "text/markdown"
-      },
-      "id": "4",
-      "references": [],
-      "title": "crontab not working for results",
-      "type": "bug"
     }
   ]
 }
