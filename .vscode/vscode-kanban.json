@@ -18,6 +18,41 @@
       "assignedTo": {
         "name": "tensorcat"
       },
+      "creation_time": "2022-11-24T03:21:35.319Z",
+      "details": {
+        "content": "install picocms on cloud",
+        "mime": "text/markdown"
+      },
+      "id": "9",
+      "references": [],
+      "title": "check out indieAuth"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-24T03:59:48.726Z",
+      "id": "10",
+      "references": [],
+      "title": "Create Startup checklist"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-24T02:46:38.004Z",
+      "description": {
+        "content": "helltown.social\nhelltown.net\nhelltown.org\nhelltown.us",
+        "mime": "text/markdown"
+      },
+      "id": "8",
+      "references": [],
+      "title": "do something with helltown domains"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
       "creation_time": "2022-11-23T03:53:31.680Z",
       "description": {
         "content": "1. node font weight is based on tagusers\n1. italics/normal/bold/underlined could be orders of magnitude",
@@ -30,6 +65,15 @@
       "id": "1",
       "references": [],
       "title": "wordcloud"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-24T04:41:39.550Z",
+      "id": "11",
+      "references": [],
+      "title": "Get 3dPrinter set up again"
     }
   ],
   "in-progress": [

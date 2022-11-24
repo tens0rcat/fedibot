@@ -6,11 +6,6 @@ mycursor = retval[1]
 
 sql_gettags = "SELECT * FROM tags"
 sql_getusers = "SELECT * FROM users"
-sql_getpostswithtag = "SELECT postid FROM posttag WHERE tagid = %s"
-sql_gettagsfrompost = "SELECT tagid from posttag WHERE postid = %s"
-sql_getuserfrompost = "SELECT userid FROM posts WHERE postid = %s"
-sql_getnamefromusers = "SELECT name FROM users WHERE id = %s"
-sql_getnamefromtag = "SELECT name FROM tags WHERE id = %s"
 sql_getuseridsfromtaguser = "SELECT tagid, userid FROM taguser"
 sql_getlinkswithtag = "SELECT t1, t2 FROM links WHERE t1 = %s OR t2 = %s"
 

@@ -28,12 +28,10 @@ mycursor = retval[1]
 sql_users = "INSERT IGNORE INTO users (id, name) VALUES (%s, %s)"
 sql_posts = "INSERT IGNORE INTO posts (postid, userid) VALUES (%s, %s)"
 sql_tagname = "INSERT IGNORE INTO tags (name) VALUES (%s)"
-sql_tags = "INSERT INTO posttag (postid, tagid) VALUES (%s, %s)"
 sql_gettag = "SELECT id FROM tags WHERE name = %s"
 sql_taguser = "INSERT IGNORE INTO taguser (tagid, userid) VALUES (%s, %s)"
 sql_links = "INSERT IGNORE INTO links (t1, t2) VALUES (%s, %s)"
-sql_countlinks = "SELECT COUNT(*) FROM links WHERE t1 = %s AND t2 = %s"
-sql_inclinkcount = "UPDATE links SET count=count+1 where t1 = %s and t2 = %s"
+
 
 for post in posts:
     # print("NewPost " + str(post.id) + " by: " + str(post.account.id) + " - " + post.account.acct)
