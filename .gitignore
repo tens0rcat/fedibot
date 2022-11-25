@@ -1,9 +1,5 @@
-/mysecrets
-results.csv
-/results
-modules/__pycache__/
-__pycache__/
-*.pyc
-fedibot.code-workspace
 fedibot.code-workspace
 .vscode/settings.json
+/mysecrets
+/results
+/**/__pycache__

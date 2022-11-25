@@ -6,7 +6,8 @@
   ],
   "settings": {
     "hide-files.files": [
-      ".vscode"
+      ".vscode",
+      "mysecrets"
     ]
   }
 }
