@@ -12,20 +12,22 @@
       "id": "5",
       "references": [],
       "title": "created and updated datetime",
-      "type": "bug"
+      "type": "bug",
+      "prio": 1
     },
     {
       "assignedTo": {
         "name": "tensorcat"
       },
       "creation_time": "2022-11-24T03:21:35.319Z",
-      "details": {
-        "content": "install picocms on cloud",
-        "mime": "text/markdown"
-      },
       "id": "9",
       "references": [],
-      "title": "check out indieAuth"
+      "title": "check out indieAuth",
+      "description": {
+        "content": "set up webserver",
+        "mime": "text/markdown"
+      },
+      "prio": 0
     },
     {
       "assignedTo": {
@@ -53,6 +55,30 @@
       "assignedTo": {
         "name": "tensorcat"
       },
+      "creation_time": "2022-11-24T04:41:39.550Z",
+      "id": "11",
+      "references": [],
+      "title": "Get 3dPrinter set up again"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-25T01:11:43.551Z",
+      "description": {
+        "content": "https://mcgillij.dev/getting-owncast-chat-in-obs.html",
+        "mime": "text/markdown"
+      },
+      "id": "12",
+      "references": [],
+      "title": "owncloud chatbot"
+    }
+  ],
+  "in-progress": [
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
       "creation_time": "2022-11-23T03:53:31.680Z",
       "description": {
         "content": "1. node font weight is based on tagusers\n1. italics/normal/bold/underlined could be orders of magnitude",
@@ -64,44 +90,8 @@
       },
       "id": "1",
       "references": [],
-      "title": "wordcloud"
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-24T04:41:39.550Z",
-      "id": "11",
-      "references": [],
-      "title": "Get 3dPrinter set up again"
-    }
-  ],
-  "in-progress": [
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-23T04:01:44.438Z",
-      "description": {
-        "content": " - [ ] need to remove unused queries \n - [x] clean up commented out code\n - [x] drop unused tables",
-        "mime": "text/markdown"
-      },
-      "id": "3",
-      "references": [],
-      "title": "database refactor"
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-24T01:44:55.030Z",
-      "description": {
-        "content": "Figure out what windows and scenes I need and set them up",
-        "mime": "text/markdown"
-      },
-      "id": "7",
-      "references": [],
-      "title": "Set up OBS w/ NDI"
+      "title": "wordcloud",
+      "prio": 2
     }
   ],
   "testing": [],
@@ -138,6 +128,19 @@
       "assignedTo": {
         "name": "tensorcat"
       },
+      "creation_time": "2022-11-23T04:01:44.438Z",
+      "description": {
+        "content": " - [x] need to remove unused queries \n - [x] clean up commented out code\n - [x] drop unused tables",
+        "mime": "text/markdown"
+      },
+      "id": "3",
+      "references": [],
+      "title": "database refactor"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
       "creation_time": "2022-11-23T03:57:35.587Z",
       "description": {
         "content": "use modules\n",
@@ -146,6 +149,19 @@
       "id": "2",
       "references": [],
       "title": "refactor"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-24T01:44:55.030Z",
+      "description": {
+        "content": "Figure out what windows and scenes I need and set them up",
+        "mime": "text/markdown"
+      },
+      "id": "7",
+      "references": [],
+      "title": "Set up OBS w/ NDI"
     }
   ]
 }

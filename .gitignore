@@ -1,3 +1,7 @@
-/secrets
+/mysecrets
 results.csv
 /results
+modules/__pycache__/
+__pycache__/
+*.pyc
+fedibot.code-workspace

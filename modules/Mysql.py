@@ -1,5 +1,5 @@
 import mysql.connector
-from secrets.secrets import mysqlsecrets as sDB
+from mysecrets.mysecrets import mysqlsecrets as sDB
 
 database = sDB['MYSQL_DATABASE']
 db_user = sDB['MYSQL_USER']

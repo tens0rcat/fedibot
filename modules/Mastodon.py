@@ -1,5 +1,5 @@
 from mastodon import Mastodon
-from secrets.secrets import mastodonsecrets as sMasto
+from mysecrets.mysecrets import mastodonsecrets as sMasto
 
 M_client_id = sMasto['MASTODON_CLIENT_ID']
 M_api_base_url = sMasto['MASTODON_PRIMARY_BASE_URL']

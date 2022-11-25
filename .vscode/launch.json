@@ -11,7 +11,7 @@
       "program": "${file}",
       "console": "integratedTerminal",
       "justMyCode": true,
-      "cwd": "."
+      "cwd": "/home/tensorcat/projects/bots/fedibot/fedibot/"
     }
   ]
 }

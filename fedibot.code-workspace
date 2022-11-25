@@ -6,8 +6,6 @@
   ],
   "settings": {
     "hide-files.files": [
-      "secrets",
-      "fedibot.code-workspace",
       ".vscode"
     ]
   }
