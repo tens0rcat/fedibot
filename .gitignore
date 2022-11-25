@@ -5,3 +5,5 @@ modules/__pycache__/
 __pycache__/
 *.pyc
 fedibot.code-workspace
+fedibot.code-workspace
+.vscode/settings.json
