@@ -3,3 +3,4 @@ fedibot.code-workspace
 /mysecrets
 /results
 /**/__pycache__
+/.vscode/settings.json
