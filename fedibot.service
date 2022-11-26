@@ -1,0 +1,20 @@
+[Unit]
+Description=fedibot Service
+Requires=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/tensorcat/projects/bots/fedibot/fedibot
+ReadWritePaths=/home/tensorcat/projects/bots/fedibot/fedibot
+ExecStart=/usr/bin/python fedibot.py
+Restart=always
+RestartSec=5
+User=fedibot
+Group=fedibot
+NoNewPrivileges=true
+SecureBits=noroot
+ProtectSystem=strict
+ProtectHome=read-only
+
+[Install]
+WantedBy=multi-user.target
