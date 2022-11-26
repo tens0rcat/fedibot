@@ -19,24 +19,10 @@
       "assignedTo": {
         "name": "tensorcat"
       },
-      "creation_time": "2022-11-24T03:21:35.319Z",
-      "id": "9",
-      "references": [],
-      "title": "check out indieAuth",
-      "description": {
-        "content": "set up webserver",
-        "mime": "text/markdown"
-      },
-      "prio": 0
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
       "creation_time": "2022-11-24T03:59:48.726Z",
       "id": "10",
       "references": [],
-      "title": "Create Startup checklist"
+      "title": "Create Stream Startup checklist"
     },
     {
       "assignedTo": {
@@ -50,15 +36,6 @@
       "id": "8",
       "references": [],
       "title": "do something with helltown domains"
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-24T04:41:39.550Z",
-      "id": "11",
-      "references": [],
-      "title": "Get 3dPrinter set up again"
     },
     {
       "assignedTo": {
@@ -81,7 +58,7 @@
       },
       "creation_time": "2022-11-23T03:53:31.680Z",
       "description": {
-        "content": "1. node font weight is based on tagusers\n1. italics/normal/bold/underlined could be orders of magnitude",
+        "content": "get something more like a std w x h\n\n",
         "mime": "text/markdown"
       },
       "details": {
@@ -92,6 +69,15 @@
       "references": [],
       "title": "wordcloud",
       "prio": 2
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-24T04:41:39.550Z",
+      "id": "11",
+      "references": [],
+      "title": "Get 3dPrinter set up again"
     }
   ],
   "testing": [],
@@ -123,6 +109,20 @@
       "references": [],
       "title": "set up services",
       "type": "bug"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-24T03:21:35.319Z",
+      "id": "9",
+      "references": [],
+      "title": "check out indieAuth",
+      "description": {
+        "content": "set up webserver",
+        "mime": "text/markdown"
+      },
+      "prio": 0
     },
     {
       "assignedTo": {

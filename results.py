@@ -1,16 +1,26 @@
 from modules import Mysql as mysql
 from wordcloud import WordCloud, STOPWORDS
 
+cleanupperiodinhours = 24
+timeperiodinhours = 6
+outputdetail = 20
+
+wordcloud_width = 800
+wordcloud_height = 450
+
+numtoptags = 40
+
 retval = mysql.init()
 mydb = retval[0]
 mycursor = retval[1]
 
 sql_gettags = "SELECT * FROM tags"
 sql_getusers = "SELECT * FROM users"
-sql_getuseridsfromtaguser = "SELECT tagid, userid FROM taguser"
-sql_getlinkswithtag = "SELECT t1, t2 FROM links WHERE t1 = %s OR t2 = %s"
+sql_getuseridsfromtaguser = "SELECT tagid, userid FROM taguser WHERE created > (NOW() - INTERVAL " + str(timeperiodinhours) + " HOUR)"
+sql_getlinkswithtag = "SELECT t1, t2 FROM links WHERE (t1 = %s OR t2 = %s) AND created > (NOW() - INTERVAL " + str(timeperiodinhours) + " HOUR)"
+sql_cleanuplinks = "DELETE FROM links WHERE created < (NOW() - INTERVAL " + str(cleanupperiodinhours) + " HOUR)"
+sql_cleanuptagusers = "DELETE FROM taguser WHERE created < (NOW() - INTERVAL " + str(cleanupperiodinhours) + " HOUR)"
 
-outputdetail = 20
 
 def outputtagsCSV(_tagusers, _tags) -> None:
     # output the final tag users
@@ -28,6 +38,16 @@ def outputlinkspertagCSV(_tag, _tags, _tagusers, _linkswithtag) -> None:
       continue
     print("\"" + _tags[_tag] + "\"," + str(_tagusers[_tag]
                                             ) + ",\"" + _tags[l] + "\"," + str(_tagusers[l]))
+
+#cleanup the dang mess
+mycursor.execute(sql_cleanuplinks)
+mydb.commit()
+print(str(mycursor.rowcount) + " links records deleted")
+
+mycursor.execute(sql_cleanuptagusers)
+mydb.commit()
+print(str(mycursor.rowcount) + " tagusers records deleted")
+
 
 # Build the tags list (id, name)
 mycursor.execute(sql_gettags)
@@ -59,15 +79,41 @@ words = {}
 for lt in tagusers:
   if tagusers[lt] >= outputdetail:
     words[tags[lt]] = tagusers[lt]
+
+
 sorted_words = sorted(words.items(), key=lambda x:x[1], reverse = True)
 words = dict(sorted_words)
+cnt = 0
+postheader  = "#TopHashTagsRightNow\nTop " 
+postheader +=  str(cnt) + " #Hashtags in the last " + str(timeperiodinhours) + " hours.\n" 
+postheader +=  "#Trending #TrendingNow #TrendingTopics\n-\n"
+postheaderlen = len(postheader) + 2
+post = ""
 
+for word in words:
+  if cnt >= numtoptags:
+    break
+  tag = "#" + word + " "
+  postlen = postheaderlen + len(post) + len(tag) 
+  if postlen > 500:
+    break
+  post = post + tag
+  cnt += 1 
+print()
+postheader  = "#TopHashTagsRightNow\nTop " 
+postheader +=  str(cnt) + " #Hashtags in the last " + str(timeperiodinhours) + " hours.\n" 
+postheader +=  "#Trending #TrendingNow #TrendingTopics\n-\n"
+post = postheader + post
+print(post)
+if len(words) < 1:
+  exit() 
 stopwords = set(STOPWORDS) 
-wc = WordCloud( width=800, height=400,
+wc = WordCloud( width=wordcloud_width, 
+                height=wordcloud_height,
                 colormap="rainbow",
                 mode="RGBA",
                 background_color=None,
-                max_words=50, 
+                max_words=numtoptags, 
                 stopwords=stopwords)
 out = wc.generate_from_frequencies(words)
 wc.to_file("results/wordcloud.png")
