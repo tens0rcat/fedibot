@@ -4,3 +4,5 @@ fedibot.code-workspace
 /results
 /**/__pycache__
 /.vscode/settings.json
+/files/logs
+ 
