@@ -1,5 +1,8 @@
 from modules import Mysql as mysql
 from wordcloud import WordCloud, STOPWORDS
+import time
+
+html = True
 
 cleanupperiodinhours = 24
 timeperiodinhours = 6
@@ -21,35 +24,7 @@ sql_getlinkswithtag = "SELECT t1, t2 FROM links WHERE (t1 = %s OR t2 = %s) AND c
 sql_cleanuplinks = "DELETE FROM links WHERE created < (NOW() - INTERVAL " + str(cleanupperiodinhours) + " HOUR)"
 sql_cleanuptagusers = "DELETE FROM taguser WHERE created < (NOW() - INTERVAL " + str(cleanupperiodinhours) + " HOUR)"
 
-htmlhead = """<!DOCTYPE html>
-<html>
-  <head>
-    <!-- Metadata goes here -->
-  </head>
-  <body>
-    <!-- Content goes here -->
 
-    <div>
-      <img src = "wordcloud.png" alt = "Popular hashtags" style="background-color: #333333"/>
-    </div>
-    <br>
-    <br>
-    <hr>
-    <br>
-"""
-
-htmltail = """
-    <br>
-    <hr>
-    <br>
-    <link href="mailto:indieauth@tensorcat.com" rel="me">
-    <link href="https://github.com/tens0rcat" rel="me">
-    <link href="https://live.tensorcat.com" rel="me">
-    <link href="https://nerdculture.de/@tensorcat" rel="me">
-    <a href="https://nerdculture.de/invite/uEPJcRfB">Follow me on Mastodon</a>
-  </body>
-</html>
-"""
 
 def outputtagsCSV(_tagusers, _tags) -> None:
     # output the final tag users
@@ -68,6 +43,49 @@ def outputlinkspertagCSV(_tag, _tags, _tagusers, _linkswithtag) -> None:
     print("\"" + _tags[_tag] + "\"," + str(_tagusers[_tag]
                                             ) + ",\"" + _tags[l] + "\"," + str(_tagusers[l]))
 
+def htmlout(_post):
+  htmlhead = """<!DOCTYPE html>
+  <html>
+    <head>
+      <!-- Metadata goes here -->
+    </head>
+    <body>
+      <!-- Content goes here -->
+
+      <div>
+        <img src = "wordcloud.png" alt = "Popular hashtags" style="background-color: #333333"/>
+      </div>
+      <br>
+      <br>
+      <hr>
+      <br>
+  """
+
+  localtime = time.asctime( time.localtime(time.time()) )     
+  htmltail = """
+      <br>
+      <hr>
+      <br>
+      <link href="mailto:indieauth@tensorcat.com" rel="me">
+      <link href="https://github.com/tens0rcat" rel="me">
+      <link href="https://live.tensorcat.com" rel="me">
+      <link href="https://nerdculture.de/@tensorcat" rel="me">
+      <a href="https://nerdculture.de/invite/uEPJcRfB">Follow me on Mastodon</a>
+      <br>
+      """ + localtime  + """
+    </body>
+  </html>
+  """
+  file = open("results/index.html","w")
+  file.write(htmlhead)
+  file.write(post)
+  file.write(htmltail)
+  file.close()
+
+
+
+
+  
 #cleanup the dang mess
 mycursor.execute(sql_cleanuplinks)
 mydb.commit()
@@ -109,7 +127,6 @@ for lt in tagusers:
   if tagusers[lt] >= outputdetail:
     words[tags[lt]] = tagusers[lt]
 
-print(htmlhead)
 
 sorted_words = sorted(words.items(), key=lambda x:x[1], reverse = True)
 words = dict(sorted_words)
@@ -134,8 +151,12 @@ postheader  = "#TopHashTagsRightNow\nTop "
 postheader +=  str(cnt) + " #Hashtags in the last " + str(timeperiodinhours) + " hours.\n" 
 postheader +=  "#Trending #TrendingNow #TrendingTopics\n-\n"
 post = postheader + post
-print(post)
-print(htmltail)
+
+if html: 
+  htmlout(post)
+else:
+  print(post)
+
 if len(words) < 1:
   exit() 
 stopwords = set(STOPWORDS) 

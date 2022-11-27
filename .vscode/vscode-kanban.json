@@ -39,22 +39,6 @@
       "assignedTo": {
         "name": "tensorcat"
       },
-      "creation_time": "2022-11-27T03:47:22.722Z",
-      "description": {
-        "content": "based on some website layout ai? youtuber top x ai websites illegal to know dude",
-        "mime": "text/markdown"
-      },
-      "id": "14",
-      "prio": 5,
-      "references": [],
-      "title": "make better html"
-    }
-  ],
-  "in-progress": [
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
       "creation_time": "2022-11-25T01:11:43.551Z",
       "description": {
         "content": "https://mcgillij.dev/getting-owncast-chat-in-obs.html",
@@ -65,7 +49,22 @@
       "title": "owncloud chatbot"
     }
   ],
-  "testing": [],
+  "in-progress": [],
+  "testing": [
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-27T04:53:27.386Z",
+      "details": {
+        "content": "canva\n\n1. http://www.copy.ai/?via=austin-armstrong\n2. https://tinywow.com/\n3. https://www.myheritage.com/deep-nosta...\n4. https://fakeyou.com/\n5. https://answers.com/\n6. https://axiom.ai/\n7. https://alternativeto.net/\n8. https://www.jotform.com/\n9. https://cleanup.pictures/\n",
+        "mime": "text/markdown"
+      },
+      "id": "15",
+      "references": [],
+      "title": "Look at these websites"
+    }
+  ],
   "done": [
     {
       "assignedTo": {
@@ -189,6 +188,20 @@
       "id": "7",
       "references": [],
       "title": "Set up OBS w/ NDI"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-27T03:47:22.722Z",
+      "description": {
+        "content": "based on some website layout ai? youtuber top x ai websites illegal to know dude",
+        "mime": "text/markdown"
+      },
+      "id": "14",
+      "prio": 5,
+      "references": [],
+      "title": "make better html"
     }
   ]
 }
