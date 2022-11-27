@@ -21,6 +21,33 @@
       "id": "8",
       "references": [],
       "title": "do something with helltown domains"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-27T03:45:41.004Z",
+      "description": {
+        "content": "based on max(len(newremoteposts),len(newlocalposts)) - 20 * somefunkyfactor or something, maybe add/subtract to the delay",
+        "mime": "text/markdown"
+      },
+      "id": "13",
+      "references": [],
+      "title": "fedibot make wait time adaptive"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-27T03:47:22.722Z",
+      "description": {
+        "content": "based on some website layout ai? youtuber top x ai websites illegal to know dude",
+        "mime": "text/markdown"
+      },
+      "id": "14",
+      "prio": 5,
+      "references": [],
+      "title": "make better html"
     }
   ],
   "in-progress": [
