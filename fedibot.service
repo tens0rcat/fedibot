@@ -8,6 +8,7 @@ WorkingDirectory=/home/tensorcat/projects/bots/fedibot/fedibot
 ReadWritePaths=/home/tensorcat/projects/bots/fedibot/fedibot
 ExecStart=/usr/bin/bash ./fedibot.sh
 RestartSec=5
+Restart=alwayscp 
 User=tensorcat
 Group=tensorcat
 NoNewPrivileges=true

@@ -7,8 +7,7 @@
   "settings": {
     "hide-files.files": [
       ".vscode",
-      "mysecrets",
-      "results.sh"
+      "mysecrets"
     ]
   }
 }

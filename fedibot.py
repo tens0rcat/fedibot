@@ -83,7 +83,10 @@ def runnit():
 
 def main():
     while True:
-        runnit()
+        try:
+            runnit()
+        except:
+            print("error")
         time.sleep(15)
 
 #if __name__ == "__main__": main()

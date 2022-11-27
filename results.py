@@ -72,7 +72,7 @@ def htmlout(_post):
       <link href="https://nerdculture.de/@tensorcat" rel="me">
       <a href="https://nerdculture.de/invite/uEPJcRfB">Follow me on Mastodon</a>
       <br>
-      """ + localtime  + """
+      """ + localtime + " " + str(time.tzname[0]) + """
     </body>
   </html>
   """
