@@ -84,7 +84,7 @@ def runnit():
 def main():
     while True:
         runnit()
-        time.sleep(5)
+        time.sleep(15)
 
 #if __name__ == "__main__": main()
 main()

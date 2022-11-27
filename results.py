@@ -3,7 +3,7 @@ from wordcloud import WordCloud, STOPWORDS
 
 cleanupperiodinhours = 24
 timeperiodinhours = 6
-outputdetail = 20
+outputdetail = 1
 
 wordcloud_width = 800
 wordcloud_height = 450
@@ -21,6 +21,35 @@ sql_getlinkswithtag = "SELECT t1, t2 FROM links WHERE (t1 = %s OR t2 = %s) AND c
 sql_cleanuplinks = "DELETE FROM links WHERE created < (NOW() - INTERVAL " + str(cleanupperiodinhours) + " HOUR)"
 sql_cleanuptagusers = "DELETE FROM taguser WHERE created < (NOW() - INTERVAL " + str(cleanupperiodinhours) + " HOUR)"
 
+htmlhead = """<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Metadata goes here -->
+  </head>
+  <body>
+    <!-- Content goes here -->
+
+    <div>
+      <img src = "wordcloud.png" alt = "Popular hashtags" style="background-color: #333333"/>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <br>
+"""
+
+htmltail = """
+    <br>
+    <hr>
+    <br>
+    <link href="mailto:indieauth@tensorcat.com" rel="me">
+    <link href="https://github.com/tens0rcat" rel="me">
+    <link href="https://live.tensorcat.com" rel="me">
+    <link href="https://nerdculture.de/@tensorcat" rel="me">
+    <a href="https://nerdculture.de/invite/uEPJcRfB">Follow me on Mastodon</a>
+  </body>
+</html>
+"""
 
 def outputtagsCSV(_tagusers, _tags) -> None:
     # output the final tag users
@@ -80,6 +109,7 @@ for lt in tagusers:
   if tagusers[lt] >= outputdetail:
     words[tags[lt]] = tagusers[lt]
 
+print(htmlhead)
 
 sorted_words = sorted(words.items(), key=lambda x:x[1], reverse = True)
 words = dict(sorted_words)
@@ -105,6 +135,7 @@ postheader +=  str(cnt) + " #Hashtags in the last " + str(timeperiodinhours) + "
 postheader +=  "#Trending #TrendingNow #TrendingTopics\n-\n"
 post = postheader + post
 print(post)
+print(htmltail)
 if len(words) < 1:
   exit() 
 stopwords = set(STOPWORDS) 
