@@ -4,10 +4,29 @@
       "assignedTo": {
         "name": "tensorcat"
       },
-      "creation_time": "2022-11-24T03:59:48.726Z",
-      "id": "10",
+      "creation_time": "2022-11-27T18:49:26.302Z",
+      "description": {
+        "content": "tags that are just there every time and dominate the board need to decay",
+        "mime": "text/markdown"
+      },
+      "id": "16",
+      "prio": 10,
       "references": [],
-      "title": "Create Stream Startup checklist"
+      "title": "tag decay"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-27T03:45:41.004Z",
+      "description": {
+        "content": "based on max(len(newremoteposts),len(newlocalposts)) - 20 * somefunkyfactor or something, maybe add/subtract to the delay",
+        "mime": "text/markdown"
+      },
+      "id": "13",
+      "references": [],
+      "title": "fedibot make wait time adaptive",
+      "prio": 5
     },
     {
       "assignedTo": {
@@ -26,15 +45,17 @@
       "assignedTo": {
         "name": "tensorcat"
       },
-      "creation_time": "2022-11-27T03:45:41.004Z",
+      "creation_time": "2022-11-27T20:11:13.041Z",
       "description": {
-        "content": "based on max(len(newremoteposts),len(newlocalposts)) - 20 * somefunkyfactor or something, maybe add/subtract to the delay",
+        "content": "live.tensorcat.com in particular.",
         "mime": "text/markdown"
       },
-      "id": "13",
+      "id": "17",
       "references": [],
-      "title": "fedibot make wait time adaptive"
-    },
+      "title": "unify exteral and internal URLs for services on the Edge"
+    }
+  ],
+  "in-progress": [
     {
       "assignedTo": {
         "name": "tensorcat"
@@ -46,10 +67,23 @@
       },
       "id": "12",
       "references": [],
-      "title": "owncloud chatbot"
+      "title": "owncloud chatbot",
+      "prio": 10
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-24T03:59:48.726Z",
+      "id": "10",
+      "references": [],
+      "title": "Create Stream Startup checklist",
+      "details": {
+        "content": "vtuber\nvscode\n",
+        "mime": "text/markdown"
+      }
     }
   ],
-  "in-progress": [],
   "testing": [
     {
       "assignedTo": {
@@ -66,6 +100,20 @@
     }
   ],
   "done": [
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-27T03:47:22.722Z",
+      "description": {
+        "content": "based on some website layout ai? youtuber top x ai websites illegal to know dude",
+        "mime": "text/markdown"
+      },
+      "id": "14",
+      "prio": 5,
+      "references": [],
+      "title": "make better html"
+    },
     {
       "assignedTo": {
         "name": "tensorcat"
@@ -188,20 +236,6 @@
       "id": "7",
       "references": [],
       "title": "Set up OBS w/ NDI"
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-27T03:47:22.722Z",
-      "description": {
-        "content": "based on some website layout ai? youtuber top x ai websites illegal to know dude",
-        "mime": "text/markdown"
-      },
-      "id": "14",
-      "prio": 5,
-      "references": [],
-      "title": "make better html"
     }
   ]
 }

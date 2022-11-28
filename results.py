@@ -55,17 +55,12 @@ def htmlout(_post):
       <div>
         <img src = "wordcloud.png" alt = "Popular hashtags" style="background-color: #333333"/>
       </div>
-      <br>
-      <br>
-      <hr>
-      <br>
+      <br><br><hr><br>
   """
 
   localtime = time.asctime( time.localtime(time.time()) )     
   htmltail = """
-      <br>
-      <hr>
-      <br>
+      <br><hr><br>
       <link href="mailto:indieauth@tensorcat.com" rel="me">
       <link href="https://github.com/tens0rcat" rel="me">
       <link href="https://live.tensorcat.com" rel="me">
@@ -73,6 +68,16 @@ def htmlout(_post):
       <a href="https://nerdculture.de/invite/uEPJcRfB">Follow me on Mastodon</a>
       <br>
       """ + localtime + " " + str(time.tzname[0]) + """
+      <br><hr><br>
+      <iframe
+        src="https://live.tensorcat.com/embed/video"
+        title="Tensorcat Live"
+        height="450px" width="800px"
+        referrerpolicy="origin"
+        scrolling="no"
+        allowfullscreen
+      >
+</iframe>
     </body>
   </html>
   """
@@ -148,7 +153,7 @@ for word in words:
   cnt += 1 
 print()
 postheader  = "#TopHashTagsRightNow\nTop " 
-postheader +=  str(cnt) + " #Hashtags in the last " + str(timeperiodinhours) + " hours.\n" 
+postheader +=  str(cnt) + " #Hashtags in the last " + str(timeperiodinhours) + " hours by unique users.\n" 
 postheader +=  "#Trending #TrendingNow #TrendingTopics\n-\n"
 post = postheader + post
 

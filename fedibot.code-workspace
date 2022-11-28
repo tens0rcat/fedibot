@@ -2,12 +2,16 @@
   "folders": [
     {
       "path": "."
+    },
+    {
+      "path": "../chatbot"
     }
   ],
   "settings": {
     "hide-files.files": [
       ".vscode",
-      "mysecrets"
+      "mysecrets",
+      "/home/tensorcat/projects/bots/fedibot/chatbot/mysecrets"
     ]
   }
 }

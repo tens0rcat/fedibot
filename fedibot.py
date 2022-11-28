@@ -85,8 +85,13 @@ def main():
     while True:
         try:
             runnit()
-        except:
-            print("error")
+        except Exception as e:
+            # Just print(e) is cleaner and more likely what you want,
+            # but if you insist on printing message specifically whenever possible...
+            if hasattr(e, 'message'):
+                print(e.message)
+            else:
+                print(e)
         time.sleep(15)
 
 #if __name__ == "__main__": main()
