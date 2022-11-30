@@ -44,21 +44,31 @@ def outputlinkspertagCSV(_tag, _tags, _tagusers, _linkswithtag) -> None:
                                             ) + ",\"" + _tags[l] + "\"," + str(_tagusers[l]))
 
 def htmlout(_post):
-  htmlhead = """<!DOCTYPE html>
+  htmlhead = """
+  <!DOCTYPE html>
   <html>
     <head>
-      <!-- Metadata goes here -->
+      <script>
+        function CopyToClipboard(id)
+        {
+          var range = document.createRange();
+          range.selectNode(document.getElementById(id));
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+          document.execCommand('copy');
+          window.getSelection().removeAllRanges();
+        }
+      </script>
     </head>
     <body>
-      <!-- Content goes here -->
-
       <div>
         <img src = "wordcloud.png" alt = "Popular hashtags" style="background-color: #333333"/>
       </div>
       <br><br><hr><br>
   """
 
-  localtime = time.asctime( time.localtime(time.time()) )     
+  localtime = time.asctime( time.localtime(time.time()) )    
+
   htmltail = """
       <br><hr><br>
       <link href="mailto:indieauth@tensorcat.com" rel="me">
@@ -69,6 +79,8 @@ def htmlout(_post):
       <br>
       """ + localtime + " " + str(time.tzname[0]) + """
       <br><hr><br>
+      It's a stream, sometimes.  Feel free to watch here or drop in at <br>
+      <a href="https://live.tensorcat.com">live.tensorcat.com</a> and say "Howdy!"<br><br>
       <iframe
         src="https://live.tensorcat.com/embed/video"
         title="Tensorcat Live"
@@ -77,7 +89,7 @@ def htmlout(_post):
         scrolling="no"
         allowfullscreen
       >
-</iframe>
+      </iframe>
     </body>
   </html>
   """
@@ -86,10 +98,6 @@ def htmlout(_post):
   file.write(post)
   file.write(htmltail)
   file.close()
-
-
-
-
   
 #cleanup the dang mess
 mycursor.execute(sql_cleanuplinks)
@@ -136,25 +144,27 @@ for lt in tagusers:
 sorted_words = sorted(words.items(), key=lambda x:x[1], reverse = True)
 words = dict(sorted_words)
 cnt = 0
-postheader  = "#TopHashTagsRightNow\nTop " 
-postheader +=  str(cnt) + " #Hashtags in the last " + str(timeperiodinhours) + " hours.\n" 
-postheader +=  "#Trending #TrendingNow #TrendingTopics\n-\n"
+postheader  = "#TopHashTagsRightNow\n<br>Top " 
+postheader += str(cnt) + " #Hashtags in the last " + str(timeperiodinhours) + " hours.\n<br>" 
+postheader += "#Trending #TrendingNow #TrendingTopics<br>\n<hr>-\n<br><br>"
+postheader += "Click a #hashtag below and then head back to Mastodon and paste it into the search box.<br>\n" 
 postheaderlen = len(postheader) + 2
 post = ""
 
 for word in words:
   if cnt >= numtoptags:
     break
-  tag = "#" + word + " "
+  t = "#" + word
+  tag = "<a href=\"#\" onclick=\"CopyToClipboard('" + t + "');return false;\"><span id=\"" + t + "\">" + t + "<span></a>\n"
   postlen = postheaderlen + len(post) + len(tag) 
-  if postlen > 500:
-    break
+  # if postlen > 500:
+  #   break
   post = post + tag
   cnt += 1 
 print()
-postheader  = "#TopHashTagsRightNow\nTop " 
-postheader +=  str(cnt) + " #Hashtags in the last " + str(timeperiodinhours) + " hours by unique users.\n" 
-postheader +=  "#Trending #TrendingNow #TrendingTopics\n-\n"
+postheader  = "#TopHashTagsRightNow\n<br>Top " 
+postheader +=  str(cnt) + " #Hashtags in the last " + str(timeperiodinhours) + " hours.\n<br>" 
+postheader +=  "#Trending #TrendingNow #TrendingTopics<br>\n<hr>-\n<br>"
 post = postheader + post
 
 if html: 

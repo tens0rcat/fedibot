@@ -21,7 +21,6 @@ mastodon = Mastodon(
 )
 
 def login():
-  global mastodon
   mastodon.log_in(
       M_email,
       M_user_token,

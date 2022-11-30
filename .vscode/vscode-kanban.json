@@ -19,14 +19,36 @@
         "name": "tensorcat"
       },
       "creation_time": "2022-11-27T03:45:41.004Z",
-      "description": {
-        "content": "based on max(len(newremoteposts),len(newlocalposts)) - 20 * somefunkyfactor or something, maybe add/subtract to the delay",
-        "mime": "text/markdown"
-      },
       "id": "13",
       "references": [],
       "title": "fedibot make wait time adaptive",
-      "prio": 5
+      "prio": 5,
+      "details": {
+        "content": "based on max(len(newremoteposts),len(newlocalposts)) - 20 * somefunkyfactor or something, maybe add/subtract to the delay",
+        "mime": "text/markdown"
+      }
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-29T01:22:58.766Z",
+      "id": "19",
+      "references": [],
+      "title": "CatBot5000: Read triggers from config file"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-29T00:12:59.233Z",
+      "description": {
+        "content": "Convert an image URL to a pgn for import into an analysis board",
+        "mime": "text/markdown"
+      },
+      "id": "18",
+      "references": [],
+      "title": "Chess - image to pgn"
     },
     {
       "assignedTo": {
@@ -53,23 +75,18 @@
       "id": "17",
       "references": [],
       "title": "unify exteral and internal URLs for services on the Edge"
-    }
-  ],
-  "in-progress": [
+    },
     {
       "assignedTo": {
         "name": "tensorcat"
       },
-      "creation_time": "2022-11-25T01:11:43.551Z",
-      "description": {
-        "content": "https://mcgillij.dev/getting-owncast-chat-in-obs.html",
-        "mime": "text/markdown"
-      },
-      "id": "12",
+      "creation_time": "2022-11-29T10:10:04.799Z",
+      "id": "22",
       "references": [],
-      "title": "owncloud chatbot",
-      "prio": 10
-    },
+      "title": "Make fedibot a Mastodon plugin"
+    }
+  ],
+  "in-progress": [
     {
       "assignedTo": {
         "name": "tensorcat"
@@ -79,9 +96,31 @@
       "references": [],
       "title": "Create Stream Startup checklist",
       "details": {
-        "content": "vtuber\nvscode\n",
+        "content": "vtuber\nvscode\nverify all sources are attached\n",
         "mime": "text/markdown"
       }
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-29T02:28:16.018Z",
+      "description": {
+        "content": "Fixed sources between scenes\nMaster volume\nShow monitor volume",
+        "mime": "text/markdown"
+      },
+      "id": "20",
+      "references": [],
+      "title": "OBS Plugins needed"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-29T02:34:30.789Z",
+      "id": "21",
+      "references": [],
+      "title": "SMAUG: Setup OBS & NDI for audio feed"
     }
   ],
   "testing": [
@@ -100,6 +139,24 @@
     }
   ],
   "done": [
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-25T01:11:43.551Z",
+      "description": {
+        "content": "CatBot5000",
+        "mime": "text/markdown"
+      },
+      "id": "12",
+      "references": [],
+      "title": "owncloud chatbot",
+      "prio": 10,
+      "details": {
+        "content": "https://mcgillij.dev/getting-owncast-chat-in-obs.html\nhttps://owncast.online/api/latest/#tag/Chat",
+        "mime": "text/markdown"
+      }
+    },
     {
       "assignedTo": {
         "name": "tensorcat"
