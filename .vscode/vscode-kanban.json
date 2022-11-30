@@ -67,6 +67,15 @@
       "assignedTo": {
         "name": "tensorcat"
       },
+      "creation_time": "2022-11-29T10:10:04.799Z",
+      "id": "22",
+      "references": [],
+      "title": "Make fedibot a Mastodon plugin"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
       "creation_time": "2022-11-27T20:11:13.041Z",
       "description": {
         "content": "live.tensorcat.com in particular.",
@@ -75,15 +84,6 @@
       "id": "17",
       "references": [],
       "title": "unify exteral and internal URLs for services on the Edge"
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-29T10:10:04.799Z",
-      "id": "22",
-      "references": [],
-      "title": "Make fedibot a Mastodon plugin"
     }
   ],
   "in-progress": [
@@ -99,28 +99,6 @@
         "content": "vtuber\nvscode\nverify all sources are attached\n",
         "mime": "text/markdown"
       }
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-29T02:28:16.018Z",
-      "description": {
-        "content": "Fixed sources between scenes\nMaster volume\nShow monitor volume",
-        "mime": "text/markdown"
-      },
-      "id": "20",
-      "references": [],
-      "title": "OBS Plugins needed"
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-11-29T02:34:30.789Z",
-      "id": "21",
-      "references": [],
-      "title": "SMAUG: Setup OBS & NDI for audio feed"
     }
   ],
   "testing": [
@@ -272,6 +250,19 @@
       "assignedTo": {
         "name": "tensorcat"
       },
+      "creation_time": "2022-11-29T02:28:16.018Z",
+      "description": {
+        "content": "Fixed sources between scenes\nMaster volume\nShow monitor volume",
+        "mime": "text/markdown"
+      },
+      "id": "20",
+      "references": [],
+      "title": "OBS Plugins needed"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
       "creation_time": "2022-11-23T03:57:35.587Z",
       "description": {
         "content": "use modules\n",
@@ -293,6 +284,15 @@
       "id": "7",
       "references": [],
       "title": "Set up OBS w/ NDI"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-11-29T02:34:30.789Z",
+      "id": "21",
+      "references": [],
+      "title": "SMAUG: Setup OBS & NDI for audio feed"
     }
   ]
 }
