@@ -10,7 +10,6 @@
   "settings": {
     "hide-files.files": [
       ".vscode",
-      "mysecrets",
       "/home/tensorcat/projects/bots/fedibot/chatbot/mysecrets"
     ]
   }

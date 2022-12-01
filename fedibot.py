@@ -1,9 +1,11 @@
 from modules import Mastodon as mastodon
 from modules import Mysql as mysql
+from mysecrets.fedibotsecrets import mastodonsecrets as M_sec
 import time
 
 def runnit():
-    #mastodon.login()
+    mastodon.init("fedibot", M_sec)
+    #mastodon.login() # Dont need to log in for public feed access
     posts = mastodon.getposts()
 
     retval = mysql.init()

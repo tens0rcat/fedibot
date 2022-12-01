@@ -1,5 +1,5 @@
 import mysql.connector
-from mysecrets.mysecrets import mysqlsecrets as sDB
+from mysecrets.fedibotsecrets import mysqlsecrets as sDB
 
 database = sDB['MYSQL_DATABASE']
 db_user = sDB['MYSQL_USER']

@@ -6,3 +6,4 @@ fedibot.code-workspace
 /.vscode/settings.json
 /files/logs
 getfollowers.py
+/proto
