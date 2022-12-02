@@ -1,6 +1,5 @@
 from modules import myMastodon as mastodon
 from mysecrets.nerdculturesecret import mastodonsecrets as M_sec
-import time
 
 #initialize myMastodon module with the name of the app and the secrets
 mastodon.init("followers2list", M_sec)
@@ -54,6 +53,7 @@ for follower in followers:
           print("BAD acct: " + follower.acct)
           continue
       except: # couldn't follow back, just skip it.
-        pass
-  # print(follower.acct)
+        print("BAD acct: " + follower.acct)
+        continue
+  print("Added: " + follower.acct)
 pass

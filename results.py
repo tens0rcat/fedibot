@@ -8,8 +8,8 @@ cleanupperiodinhours = 24
 timeperiodinhours = 6
 outputdetail = 1
 
-wordcloud_width = 800
-wordcloud_height = 450
+wordcloud_width = 1400
+wordcloud_height = 400
 
 numtoptags = 40
 
@@ -24,6 +24,9 @@ sql_getlinkswithtag = "SELECT t1, t2 FROM links WHERE (t1 = %s OR t2 = %s) AND c
 sql_cleanuplinks = "DELETE FROM links WHERE created < (NOW() - INTERVAL " + str(cleanupperiodinhours) + " HOUR)"
 sql_cleanuptagusers = "DELETE FROM taguser WHERE created < (NOW() - INTERVAL " + str(cleanupperiodinhours) + " HOUR)"
 
+localtime = time.asctime( time.localtime(time.time()) )   
+datestr = "\n\n" + localtime + " " + str(time.tzname[0] )
+lendatestr = len(datestr)
 
 
 def outputtagsCSV(_tagusers, _tags) -> None:
@@ -62,12 +65,12 @@ def htmlout(_post):
     </head>
     <body>
       <div>
-        <img src = "wordcloud.png" alt = "Popular hashtags" style="background-color: #333333"/>
+        <img src = "wordcloud.png" alt = "Popular hashtags" style="background-color: #333333" width="700" height="200"/>
       </div>
       <br><br><hr><br>
   """
 
-  localtime = time.asctime( time.localtime(time.time()) )    
+   
 
   htmltail = """
       <br><hr><br>
@@ -77,7 +80,7 @@ def htmlout(_post):
       <link href="https://nerdculture.de/@tensorcat" rel="me">
       <a href="https://nerdculture.de/invite/uEPJcRfB">Follow me on Mastodon</a>
       <br>
-      """ + localtime + " " + str(time.tzname[0]) + """
+      """ + datestr + """
       <br><hr><br>
       It's a stream, sometimes.  Feel free to watch here or drop in at <br>
       <a href="https://live.tensorcat.com">live.tensorcat.com</a> and say "Howdy!"<br><br>
@@ -165,6 +168,7 @@ print()
 postheader  = "#TopHashTagsRightNow\n<br>Top " 
 postheader +=  str(cnt) + " #Hashtags in the last " + str(timeperiodinhours) + " hours.\n<br>" 
 postheader +=  "#Trending #TrendingNow #TrendingTopics<br>\n<hr>-\n<br>"
+postheader += "Click a #hashtag below and then head back to Mastodon and paste it into the search box.<br>\n" 
 post = postheader + post
 
 if html: 
@@ -184,6 +188,43 @@ wc = WordCloud( width=wordcloud_width,
                 stopwords=stopwords)
 out = wc.generate_from_frequencies(words)
 wc.to_file("results/wordcloud.png")
+
+
+from modules import myMastodon as mastodon
+from mysecrets.nerdculturesecret import mastodonsecrets as M_sec
+
+#initialize myMastodon module with the name of the app and the secrets
+mastodon.init("top40results", M_sec)
+
+#login to the instance, required if doing anything except reading public feeds (local and remote)
+mastodon = mastodon.login()
+
+#Get my account data
+mydata = mastodon.me()
+currentfeatured = mastodon.featured_tags()
+for tag in currentfeatured:
+  mastodon.featured_tag_delete(tag.id)
+taglist = """
+#TopHashTagsRightNow
+Top 40 #Hashtags in the last 6 hours.
+#Trending #TrendingNow #TrendingTopics
+
+"""
+tagheaderlen = len(taglist)
+cnt = 0
+for word in words:
+  tag = "#" + word + " "
+  if len(taglist) + len(tag) + len(datestr) < 500:
+    taglist += tag
+    cnt += 1
+    if cnt > 39 :
+      break
+taglist += datestr
+mastodon.account_update_credentials(
+  note = taglist,
+  header = "results/wordcloud.png"
+)
+pass
 
 # for tag in tags:
 #   val = (tag, tag)
