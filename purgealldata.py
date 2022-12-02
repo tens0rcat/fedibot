@@ -1,4 +1,4 @@
-from modules import Mysql as mysql
+from modules import myMysql as mysql
 
 retval = mysql.init()
 mydb = retval[0]

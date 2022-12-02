@@ -1,5 +1,5 @@
-from modules import Mastodon as mastodon
-from modules import Mysql as mysql
+from modules import myMastodon as mastodon
+from modules import myMysql as mysql
 from mysecrets.fedibotsecrets import mastodonsecrets as M_sec
 import time
 
