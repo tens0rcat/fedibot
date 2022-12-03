@@ -41,6 +41,7 @@ for follower in followers:
         id = listid, 
         account_ids = follower.id
       )
+      print("Added: " + follower.acct)
     except: #if adding the follower failed
       try:    #to follow back
         mastodon.account_follow(follower.id) 
@@ -49,11 +50,17 @@ for follower in followers:
             id = listid, 
             account_ids = follower.id
           )
+          print("Added: " + follower.acct)
         except: #followed and still cant add then bad accoount (acct forwarded, deleted, or request pending)
           print("BAD acct: " + follower.acct)
           continue
       except: # couldn't follow back, just skip it.
         print("BAD acct: " + follower.acct)
         continue
-  print("Added: " + follower.acct)
+    print("Added: " + follower.acct)
 pass
+#dump list of followers to file
+file = open("results/followers.txt","w")
+for follower in followers:
+  file.write(str(follower.acct))
+file.close()
