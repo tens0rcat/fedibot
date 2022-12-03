@@ -40,6 +40,9 @@ def init(app_name, sMasto):
       api_base_url = M_url
   )
 
+def server():
+  return M_server_id
+
 def login(ratelimit):
   mastodon.log_in(
       M_email,

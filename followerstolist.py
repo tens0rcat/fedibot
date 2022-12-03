@@ -1,8 +1,18 @@
 from modules import myMastodon as mastodon
 from mysecrets.nerdculturesecret import mastodonsecrets as M_sec
 
+def dumpfollowers():
+  file = open("results/followers.txt","w")
+  for follower in followers:
+    account = str(follower.acct)
+    if "@" not in account:
+      account += "@" + tmpmastodon.server()
+    file.write(str(account) + "\n")
+  file.close()
+
 #initialize myMastodon module with the name of the app and the secrets
 mastodon.init("followers2list", M_sec)
+tmpmastodon = mastodon
 
 #login to the instance, required if doing anything except reading public feeds (local and remote)
 mastodon = mastodon.login()
@@ -60,7 +70,4 @@ for follower in followers:
     print("Added: " + follower.acct)
 pass
 #dump list of followers to file
-file = open("results/followers.txt","w")
-for follower in followers:
-  file.write(str(follower.acct))
-file.close()
+dumpfollowers()
