@@ -7,7 +7,10 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     ".vscode": true,
-    "/home/tensorcat/projects/bots/fedibot/chatbot/mysecrets": true
+    "/home/tensorcat/projects/bots/fedibot/chatbot/mysecrets": true,
+    "mysecrets": true
   },
-  "hide-files.files": []
+  "hide-files.files": [
+    "mysecrets"
+  ]
 }

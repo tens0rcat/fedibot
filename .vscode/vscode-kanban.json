@@ -104,11 +104,14 @@
       "assignedTo": {
         "name": "tensorcat"
       },
-      "creation_time": "2022-12-02T02:54:45.650Z",
-      "id": "23",
-      "prio": 1,
+      "creation_time": "2022-12-03T16:29:23.779Z",
+      "description": {
+        "content": "stuck, waiting for timeout to clear",
+        "mime": "text/markdown"
+      },
+      "id": "25",
       "references": [],
-      "title": "Add top 40 to recommended hashtags in profile"
+      "title": "get certs for freebot.dev"
     }
   ],
   "testing": [
@@ -127,6 +130,16 @@
     }
   ],
   "done": [
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-12-03T02:09:31.304Z",
+      "id": "24",
+      "prio": 999,
+      "references": [],
+      "title": "convert everything to static IPs, fuck ubuntu"
+    },
     {
       "assignedTo": {
         "name": "tensorcat"
@@ -191,6 +204,20 @@
       "title": "created and updated datetime",
       "type": "bug",
       "prio": 1
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-12-02T02:54:45.650Z",
+      "id": "23",
+      "prio": 1,
+      "references": [],
+      "title": "Add top 40 to recommended hashtags in profile",
+      "description": {
+        "content": "featured hashtags isn't what i thought.  only shows posts you made with those tags.  So top40 is in bio.",
+        "mime": "text/markdown"
+      }
     },
     {
       "assignedTo": {
