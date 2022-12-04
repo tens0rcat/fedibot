@@ -23,11 +23,23 @@ sql_getuseridsfromtaguser = "SELECT tagid, userid FROM taguser WHERE created > (
 sql_getlinkswithtag = "SELECT t1, t2 FROM links WHERE (t1 = %s OR t2 = %s) AND created > (NOW() - INTERVAL " + str(timeperiodinhours) + " HOUR)"
 sql_cleanuplinks = "DELETE FROM links WHERE created < (NOW() - INTERVAL " + str(cleanupperiodinhours) + " HOUR)"
 sql_cleanuptagusers = "DELETE FROM taguser WHERE created < (NOW() - INTERVAL " + str(cleanupperiodinhours) + " HOUR)"
+sql_cleanupposts = "DELETE FROM posts WHERE created < (NOW() - INTERVAL " + str(cleanupperiodinhours) + " HOUR)"
 
 localtime = time.asctime( time.localtime(time.time()) )   
 datestr = "\n\n" + localtime + " " + str(time.tzname[0] )
 lendatestr = len(datestr)
 
+def update_profile_page(devorprod):
+  #initialize myMastodon module with the name of the app and the secrets
+  mastodon.init("top40results", M_sec, devorprod)
+
+  #login to the instance, required if doing anything except reading public feeds (local and remote)
+  authmastodon = mastodon.login()
+
+  authmastodon.account_update_credentials(
+    note = taglist,
+    header = "results/wordcloud.png"
+  )
 
 def outputtagsCSV(_tagusers, _tags) -> None:
     # output the final tag users
@@ -111,6 +123,9 @@ mycursor.execute(sql_cleanuptagusers)
 mydb.commit()
 print(str(mycursor.rowcount) + " tagusers records deleted")
 
+mycursor.execute(sql_cleanupposts)
+mydb.commit()
+print(str(mycursor.rowcount) + " posts records deleted")
 
 # Build the tags list (id, name)
 mycursor.execute(sql_gettags)
@@ -193,17 +208,7 @@ wc.to_file("results/wordcloud.png")
 from modules import myMastodon as mastodon
 from mysecrets.nerdculturesecret import mastodonsecrets as M_sec
 
-#initialize myMastodon module with the name of the app and the secrets
-mastodon.init("top40results", M_sec)
 
-#login to the instance, required if doing anything except reading public feeds (local and remote)
-mastodon = mastodon.login()
-
-#Get my account data
-mydata = mastodon.me()
-currentfeatured = mastodon.featured_tags()
-for tag in currentfeatured:
-  mastodon.featured_tag_delete(tag.id)
 taglist = """
 #TopHashTagsRightNow
 Top 40 #Hashtags in the last 6 hours.
@@ -220,10 +225,9 @@ for word in words:
     if cnt > 39 :
       break
 taglist += datestr
-mastodon.account_update_credentials(
-  note = taglist,
-  header = "results/wordcloud.png"
-)
+
+update_profile_page("dev")
+update_profile_page("prod")
 pass
 
 # for tag in tags:
