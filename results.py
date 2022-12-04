@@ -29,9 +29,9 @@ localtime = time.asctime( time.localtime(time.time()) )
 datestr = "\n\n" + localtime + " " + str(time.tzname[0] )
 lendatestr = len(datestr)
 
-def update_profile_page(devorprod):
+def update_profile_page(user, server):
   #initialize myMastodon module with the name of the app and the secrets
-  mastodon.init("top40results", M_sec, devorprod)
+  mastodon.init("top40results", server, user, M_sec)
 
   #login to the instance, required if doing anything except reading public feeds (local and remote)
   authmastodon = mastodon.login()
@@ -206,7 +206,7 @@ wc.to_file("results/wordcloud.png")
 
 
 from modules import myMastodon as mastodon
-from mysecrets.nerdculturesecret import mastodonsecrets as M_sec
+from mysecrets.fedibotsecrets import mastodonsecrets as M_sec
 
 
 taglist = """
@@ -226,8 +226,8 @@ for word in words:
       break
 taglist += datestr
 
-update_profile_page("dev")
-update_profile_page("prod")
+update_profile_page("tensorcat", "freebot.dev")
+update_profile_page("tensorcat", "nerdculture.de")
 pass
 
 # for tag in tags:

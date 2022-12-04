@@ -4,7 +4,7 @@ from mysecrets.fedibotsecrets import mastodonsecrets as M_sec
 import time
 
 def runnit():
-    mastodon.init("fedibot", M_sec)
+    mastodon.init("fedibot", "mastodon.social", "", M_sec)
     #mastodon.login() # Dont need to log in for public feed access
     posts = mastodon.getposts()
 
@@ -19,7 +19,7 @@ def runnit():
     sql_taguser = "INSERT IGNORE INTO taguser (tagid, userid) VALUES (%s, %s)"
     sql_links = "INSERT IGNORE INTO links (t1, t2) VALUES (%s, %s)"
 
-    print("ok")
+    print("ok " + str(len(posts)))
     for post in posts:
         # print("NewPost " + str(post.id) + " by: " + str(post.account.id) + " - " + post.account.acct)
         if post.account.bot:

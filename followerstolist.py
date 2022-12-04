@@ -1,5 +1,5 @@
 from modules import myMastodon as mastodon
-from mysecrets.nerdculturesecret import mastodonsecrets as M_sec
+from mysecrets.fedibotsecrets import mastodonsecrets as M_sec
 
 def dumpfollowers():
   file = open("results/followers.txt","w")
@@ -11,7 +11,7 @@ def dumpfollowers():
   file.close()
 
 #initialize myMastodon module with the name of the app and the secrets
-mastodon.init("followers2list", M_sec)
+mastodon.init("followers2list", "nerdculture.de", "tensorcat", M_sec)
 tmpmastodon = mastodon
 
 #login to the instance, required if doing anything except reading public feeds (local and remote)
