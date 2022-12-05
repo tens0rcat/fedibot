@@ -1,9 +1,8 @@
 fedibot.code-workspace
-.vscode/settings.json
 /mysecrets
 /results
 /**/__pycache__
-/.vscode/settings.json
+/.vscode
 /files/logs
 getfollowers.py
 /proto
