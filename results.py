@@ -210,7 +210,7 @@ from mysecrets.fedibotsecrets import mastodonsecrets as M_sec
 
 
 taglist = """
-#TopHashTagsRightNow
+#TopHashTagsRightNow #FediTips
 Top 40 #Hashtags in the last 6 hours.
 #Trending #TrendingNow #TrendingTopics
 
