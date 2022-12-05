@@ -4,5 +4,4 @@ fedibot.code-workspace
 /**/__pycache__
 /.vscode
 /files/logs
-getfollowers.py
 /proto
