@@ -52,27 +52,29 @@ def server():
 
 ##
 
-def login(ratelimit):
-  mastodon.log_in(
-      M_email,
-      M_user_token,
-      M_login
-  )
-  return Mastodon(
-    client_id = M_client_id,
-    ratelimit_method = ratelimit
-  )
-
-##
-
-def login():
+def login(ratelimit="pace"):
   global mastodon
   mastodon.log_in(
       M_email,
       M_user_token,
       M_login
   )
+  Mastodon(
+    client_id = M_client_id,
+    ratelimit_method = ratelimit
+  )
   return mastodon
+
+##
+
+# def login():
+#   global mastodon
+#   mastodon.log_in(
+#       M_email,
+#       M_user_token,
+#       M_login
+#   )
+#   return mastodon
 
 ##
  
