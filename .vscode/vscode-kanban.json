@@ -84,15 +84,6 @@
       "id": "17",
       "references": [],
       "title": "unify exteral and internal URLs for services on the Edge"
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-12-04T16:17:45.472Z",
-      "id": "26",
-      "references": [],
-      "title": "new VoiceMeeter Potato - has compressor"
     }
   ],
   "in-progress": [
@@ -113,14 +104,10 @@
       "assignedTo": {
         "name": "tensorcat"
       },
-      "creation_time": "2022-12-03T16:29:23.779Z",
-      "description": {
-        "content": "stuck, waiting for timeout to clear",
-        "mime": "text/markdown"
-      },
+      "creation_time": "2022-12-05T03:48:47.846Z",
       "id": "25",
       "references": [],
-      "title": "get certs for freebot.dev"
+      "title": "Make regular posts every 6 hrs from @top40hashtags"
     }
   ],
   "testing": [
