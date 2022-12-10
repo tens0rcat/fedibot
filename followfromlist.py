@@ -1,4 +1,3 @@
-from dataclasses import dataclass
 from modules import myMastodon as Mastodon
 from mysecrets.fedibotsecrets import mastodonsecrets as M_sec
 import requests

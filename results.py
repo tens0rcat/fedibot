@@ -8,8 +8,8 @@ cleanupperiodinhours = 24
 timeperiodinhours = 6
 outputdetail = 1
 
-wordcloud_width = 1400
-wordcloud_height = 400
+wordcloud_width = 700
+wordcloud_height = 233
 
 numtoptags = 40
 
@@ -30,16 +30,19 @@ datestr = "\n\n" + localtime + " " + str(time.tzname[0] )
 lendatestr = len(datestr)
 
 def update_profile_page(user, server):
-  #initialize myMastodon module with the name of the app and the secrets
-  mastodon.init("top40results", server, user, M_sec)
+  try:
+    #initialize myMastodon module with the name of the app and the secrets
+    mastodon.init("top40results", server, user, M_sec)
 
-  #login to the instance, required if doing anything except reading public feeds (local and remote)
-  authmastodon = mastodon.login()
+    #login to the instance, required if doing anything except reading public feeds (local and remote)
+    authmastodon = mastodon.login()
 
-  authmastodon.account_update_credentials(
-    note = taglist,
-    header = "results/wordcloud.png"
-  )
+    authmastodon.account_update_credentials(
+      note = taglist,
+      header = "results/wordcloud.png"
+    )
+  except BaseException:
+    print("Error updating " + user + "@" + server) 
 
 def outputtagsCSV(_tagusers, _tags) -> None:
     # output the final tag users

@@ -84,6 +84,19 @@
       "id": "17",
       "references": [],
       "title": "unify exteral and internal URLs for services on the Edge"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-12-06T13:19:58.909Z",
+      "description": {
+        "content": "especially for tracking cert expiration\n",
+        "mime": "text/markdown"
+      },
+      "id": "26",
+      "references": [],
+      "title": "website monitoring"
     }
   ],
   "in-progress": [
@@ -99,15 +112,6 @@
         "content": "vtuber\nvscode\nverify all sources are attached\n",
         "mime": "text/markdown"
       }
-    },
-    {
-      "assignedTo": {
-        "name": "tensorcat"
-      },
-      "creation_time": "2022-12-05T03:48:47.846Z",
-      "id": "25",
-      "references": [],
-      "title": "Make regular posts every 6 hrs from @top40hashtags"
     }
   ],
   "testing": [
@@ -278,6 +282,15 @@
       "id": "11",
       "references": [],
       "title": "Get 3dPrinter set up again"
+    },
+    {
+      "assignedTo": {
+        "name": "tensorcat"
+      },
+      "creation_time": "2022-12-05T03:48:47.846Z",
+      "id": "25",
+      "references": [],
+      "title": "Make regular posts every 6 hrs from @top40hashtags"
     },
     {
       "assignedTo": {
