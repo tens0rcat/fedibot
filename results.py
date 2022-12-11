@@ -234,6 +234,7 @@ update_profile_page("tensorcat", "nerdculture.de")
 update_profile_page("top40hashtags", "freebot.dev")
 pass
 
+#TODO: Put this back in once the front end is better
 # for tag in tags:
 #   val = (tag, tag)
 #   mycursor.execute(sql_getlinkswithtag, val)

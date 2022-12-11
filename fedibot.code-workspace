@@ -1,11 +1,13 @@
 {
-  "folders": [
-    {
-      "path": "."
-    }
-  ],
-  "settings": {
-    "hide-files.files": []
-
-  }
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"hide-files.files": [
+			"proto/mysecrets",
+			"mysecrets"
+		]
+	}
 }
