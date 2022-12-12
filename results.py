@@ -232,6 +232,7 @@ taglist += datestr
 update_profile_page("tensorcat", "freebot.dev")
 update_profile_page("tensorcat", "nerdculture.de")
 update_profile_page("top40hashtags", "freebot.dev")
+update_profile_page("top40hashtags", "botsin.space")
 pass
 
 #TODO: Put this back in once the front end is better
