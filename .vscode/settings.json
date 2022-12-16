@@ -8,7 +8,8 @@
     "**/Thumbs.db": true,
     ".vscode": true,
     "/home/tensorcat/projects/bots/fedibot/chatbot/mysecrets": true,
-    "proto/mysecrets": true
+    "proto/mysecrets": true,
+    "mysecrets": true
   },
   "hide-files.files": [
     "proto/mysecrets",

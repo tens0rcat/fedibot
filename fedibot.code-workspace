@@ -6,7 +6,8 @@
 	],
 	"settings": {
 		"hide-files.files": [
-      "proto/mysecrets"
-    ]
+			"proto/mysecrets",
+			"mysecrets"
+		]
 	}
 }
